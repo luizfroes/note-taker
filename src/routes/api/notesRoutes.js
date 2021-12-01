@@ -1,10 +1,14 @@
+//import express
 const { Router } = require("express");
+
+//import controllers
+const { getNotes, createNotes, deleteNote } = require("../../controllers/api");
 
 const router = Router();
 
 router.get("/", getNotes);
 
-router.post("/", createNote);
+router.post("/", createNotes);
 
 router.delete("/:id", deleteNote);
 
