@@ -2,7 +2,7 @@
 
 ## Links
 
-- Deployed Heroku link [here](https://github.com/luizfroes)
+- Deployed Heroku link [here](https://intense-headland-42686.herokuapp.com/)
 
 <h2>Table of Contents</h2>
 
@@ -73,7 +73,7 @@ This endpoint is for users who want to get all the notes saved previously. It wi
 Sample endpoint with parameters:
 
 ```
-https://api.openweathermap.org/com/surfreport/123?&days=2&units=metrics&hour=1400
+https://intense-headland-42686.herokuapp.com/notes
 ```
 
 The response contains these elements:
@@ -103,12 +103,6 @@ See sample response:
 
 This endpoint is for users who want to save a new note to your saved notes. It will create a new note.
 
-Sample endpoint with parameters:
-
-```
-https://api.openweathermap.org/com/surfreport/123?&days=2&units=metrics&hour=1400
-```
-
 The response contains these elements:
 
 - title
@@ -126,12 +120,6 @@ POST body:
 #### - DELETE /notes/:id
 
 This endpoint is for users who want to delete an specific note from your saved notes. It will return an updated array of notes
-
-Sample endpoint with parameters:
-
-```
-https://api.openweathermap.org/com/surfreport/123?&days=2&units=metrics&hour=1400
-```
 
 The response contains these elements:
 

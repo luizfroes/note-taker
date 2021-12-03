@@ -20,9 +20,7 @@ const createNotes = (req, res) => {
   //validate if my object contains all the following keys: title and text
   const validKeys = ["title", "text"];
 
-  const isValid = validKeys.every((key) => {
-    return Object.keys(payload).includes(key);
-  });
+  const isValid = validKeys.every((key) => Object.keys(payload).includes(key));
 
   if (isValid) {
     const newNote = {
@@ -59,9 +57,7 @@ const deleteNote = (req, res) => {
       message: `There is no note with the ID: ${id}`,
     });
   }
-  const newNotes = notes.filter((note) => {
-    return note.id !== id;
-  });
+  const newNotes = notes.filter((note) => note.id !== id);
 
   writeToFile(
     path.join(__dirname, "../../../db/db.json"),
