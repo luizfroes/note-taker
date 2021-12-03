@@ -1,6 +1,9 @@
 //import path
 const path = require("path");
 
+//import uuid
+const { v4: uuidv4 } = require("uuid");
+
 //import utils
 const { getNotesFromFile, writeToFile } = require("../../utils");
 
@@ -12,9 +15,36 @@ const getNotes = (req, res) => {
 };
 
 const createNotes = (req, res) => {
-  console.log(req.query);
+  const payload = req.body;
 
-  res.json("createNotes");
+  //validate if my object contains all the following keys: title and text
+  const validKeys = ["title", "text"];
+
+  const isValid = validKeys.every((key) => {
+    return Object.keys(payload).includes(key);
+  });
+
+  if (isValid) {
+    const newNote = {
+      id: uuidv4(),
+      ...payload,
+    };
+
+    const notes = getNotesFromFile();
+
+    notes.push(newNote);
+
+    writeToFile(
+      path.join(__dirname, "../../../db/db.json"),
+      JSON.stringify(notes)
+    );
+
+    res.json(newNote);
+  }
+
+  return res.status(400).json({
+    message: "In order to save a note you need to add a Title and a Text.",
+  });
 };
 
 const deleteNote = (req, res) => {
@@ -37,10 +67,6 @@ const deleteNote = (req, res) => {
     path.join(__dirname, "../../../db/db.json"),
     JSON.stringify(newNotes)
   );
-
-  console.log(notes);
-  console.log(id);
-  console.log(newNotes);
 
   return res.json(newNotes);
 };
