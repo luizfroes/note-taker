@@ -1,0 +1,26 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "Note-Taker-app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizfroes/note-taker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luizfroes/note-taker/issues"
+  },
+  "homepage": "https://github.com/luizfroes/note-taker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2"
+  }
+}
